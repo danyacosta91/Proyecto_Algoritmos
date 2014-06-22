@@ -50,12 +50,12 @@ public class GGrafo {
         while (nodo.getSiguiente() != null) {
             nodo = nodo.getSiguiente();
             padre = obtenerLista(nodo.getId());
-            if (nodo != null && estaGuardado(nodo.getId()) == false && buscarAdyacencia(padre)) {
+            if (nodo != null && padre != null && estaGuardado(nodo.getId()) == false && buscarAdyacencia(padre)) {
                 bfp(padre.getCabeza());
             }
         }
         padre = obtenerLista(nodo.getId());
-        if (estaGuardado(nodo.getId()) == false && buscarAdyacencia(padre)) {
+        if (nodo != null && padre != null && estaGuardado(nodo.getId()) == false && buscarAdyacencia(padre)) {
             bfp(padre.getCabeza());
         }
     }
