@@ -21,8 +21,9 @@ public class Proyecto_Algoritmos {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Test leer = new Test("//home//dany//Documents//Algoritmos//Proyecto//prueba2.txt");
+        Test leer = new Test(System.getProperty("user.dir")+"//prueba2.txt");
     }
+
 
     private static final class Test {
 
@@ -45,7 +46,6 @@ public class Proyecto_Algoritmos {
                 fr = new FileReader(archivo);
                 br = new BufferedReader(fr);
                 while ((linea = br.readLine()) != null) {
-                    System.out.println(linea);
                     nodos.add(linea.split(";")[0]);
                     aristas.add(linea.split(";")[1]);
                 }
@@ -54,31 +54,32 @@ public class Proyecto_Algoritmos {
                 System.out.println("Error:" + e.getMessage());
             }
         }
-        
-        public void correr(){
-            
-            for (int i = 0; i < nodos.size(); i++)
+
+        public void correr() {
+
+            for (int i = 0; i < nodos.size(); i++) {
                 grafo.agregarNodo(Integer.parseInt(nodos.get(i).split(",")[0]), nodos.get(i).split(",")[1]);
-            
-            String []tmp = null;
+            }
+
+            String[] tmp = null;
             for (int i = 0; i < aristas.size(); i++) {
                 tmp = aristas.get(i).split(",");
                 for (int j = 0; j < tmp.length; j++) {
                     grafo.agregarArista(Integer.parseInt(nodos.get(i).split(",")[0]), Integer.parseInt(tmp[j]));
                 }
             }
-            
+
             int opc = 0;
-            
+
             grafo.setCover();
             grafo.clique();
-            
-            Scanner entrada = new Scanner( System.in);
-            do{
+
+            Scanner entrada = new Scanner(System.in);
+            do {
                 System.out.println("******************** MENU ***************************");
                 System.out.println("1) Grupo mas grande\n2) Grupo mas pequeño\n3) Imprimir grafo\n4) Salir\n\nIngrese opcion:");
                 opc = entrada.nextInt();
-                switch( opc ){
+                switch (opc) {
                     case 1:
                         grafo.imprimirClique();
                         break;
@@ -92,7 +93,7 @@ public class Proyecto_Algoritmos {
                         System.exit(0);
                         break;
                 }
-            }while( opc != 4 );
+            } while (opc != 4);
         }
     }
 }

@@ -1,0 +1,7 @@
+1,Daniel_Acosta;2,3,4,5
+2,Manuel_Nuñez;1,4,5
+3,David_Porcel;1,6,7
+4,Uzziel_Umanzor;1,2,5
+5,Stephanie_Schoenherr;1,2,4
+6,Oseas_Torres;3,7
+7,Kevin_Lopez;3,6
